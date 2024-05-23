@@ -11,13 +11,6 @@ export class UserService {
     ) {}
 
     async addUser(email: string): Promise<User> {
-        // Check if email already exists
-        const isEmailExist = await this.usersRepository.findOne({
-            where: { email },
-        });
-        if (isEmailExist) {
-            throw new ConflictException('Email already exists');
-        }
         // Create new user
         const newUser = this.usersRepository.create({ email });
         await this.usersRepository.save(newUser);

@@ -16,9 +16,6 @@ export class TaskService {
         userId: string,
         priority: number,
     ): Promise<Task> {
-        if (!name || !userId || priority < 1) {
-            throw new BadRequestException('Invalid task data');
-        }
         const task = this.taskRepository.create({ name, userId, priority });
         return this.taskRepository.save(task);
     }
