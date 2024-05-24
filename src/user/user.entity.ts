@@ -8,7 +8,7 @@ import {
 @Entity()
 export class User {
     @ObjectIdColumn()
-    id: number;
+    id: string;
 
     @Column({ unique: true })
     email: string;
